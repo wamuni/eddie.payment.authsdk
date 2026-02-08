@@ -1,10 +1,13 @@
 package eddie.payment.authsdk;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;
+
 @Configuration
 public class SecurityConfig {
 	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(a -> a.anyRequest().authenticated());
-		return http.build();
+	public String helloBean() {
+		System.out.println("helloBean created");
+		return "hello";
 	}
 }
