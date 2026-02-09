@@ -1,2 +1,7 @@
+eddie/payment/authsdk/EagerBean.class
+eddie/payment/authsdk/Repo.class
 eddie/payment/authsdk/App.class
+eddie/payment/authsdk/Service.class
+eddie/payment/authsdk/LazyBean.class
+eddie/payment/authsdk/AppConfig.class
 eddie/payment/authsdk/SecurityConfig.class
