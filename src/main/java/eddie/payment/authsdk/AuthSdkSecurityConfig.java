@@ -9,14 +9,18 @@ import org.springframework.security.web.SecurityFilterChain;
 public class AuthSdkSecurityConfig {
 
 	@Bean
-	SecurityFilterChain authSdkFilterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain authSdkFilterChain(
+		HttpSecurity http,
+		AuthSdkProperties props
+		) throws Exception {
 		http
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(auth -> auth
 					.requestMatchers("/actuator/health").permitAll()
 					.anyRequest().authenticated()
 				)
-			.httpBasic(basic -> {});
+			.oauth2ResourceServer(oauth2 -> oauth2
+					.jwt(jwt -> jwt.jwkSetUri(props.jwksUri())));
 		return http.build();
 	}
 }
