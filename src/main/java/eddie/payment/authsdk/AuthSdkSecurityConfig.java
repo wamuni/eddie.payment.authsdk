@@ -23,4 +23,9 @@ public class AuthSdkSecurityConfig {
 					.jwt(jwt -> jwt.jwkSetUri(props.jwksUri())));
 		return http.build();
 	}
+
+	@Bean
+	public CurrentUserProvider currentUserProvider() {
+		return new CurrentUserProvider();
+	}
 }
